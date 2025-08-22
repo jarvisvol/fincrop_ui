@@ -25,7 +25,7 @@ const HomePage = () => {
   return (
     <div className="bg-gray-50 font-sans">
       {/* Header/Navigation */}
-      <header className="gradient-bg text-white shadow-lg">
+      {/* <header className="gradient-bg text-white shadow-lg">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center space-x-2">
@@ -64,10 +64,10 @@ const HomePage = () => {
             </div>
           </div>
         </div>
-      </header>
+      </header> */}
 
       {/* Mobile Menu */}
-      <div className={`md:hidden bg-blue-900 text-white py-2 px-4 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
+      {/* <div className={`md:hidden bg-blue-900 text-white py-2 px-4 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
         {['Dashboard', 'Invest', 'Portfolio', 'Learn', 'Profile'].map((item) => (
           <a
             key={item}
@@ -82,7 +82,7 @@ const HomePage = () => {
             {item}
           </a>
         ))}
-      </div>
+      </div> */}
 
       {/* Main Content */}
       <main className="container mx-auto px-4 py-6">

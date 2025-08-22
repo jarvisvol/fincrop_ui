@@ -25,7 +25,7 @@ export const registerUser = async(payload) => {
 
 export const userLogin  = async(payload) => {
     try {
-        const respo = await HTTP.post('user/login', payload);
+        const respo = await HTTP.post('auth/login', payload);
         store.dispatch(userLoginSuccess(respo));
     } catch (error) {
         store.dispatch(userLoginFail(error.response.data))
