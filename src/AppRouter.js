@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import HomePage from './modules/home/Homepage';
-import Login from './modules/auth/Login';
-import Register from './modules/auth/Register';
-import Portfolio from './modules/portfolio/Portfolio';
-import Invest from './modules/invest/Invest';
-import Profile from './modules/profile/Profile';
+import HomePage from './modules/home/components/Homepage';
+import Login from './modules/auth/components/Login';
+import Register from './modules/auth/components/Register';
+import Portfolio from './modules/portfolio/components/Portfolio';
+import Invest from './modules/invest/components/Invest';
+import Profile from './modules/profile/components/Profile';
 import Layout from './modules/layout/Layout';
 import { verifyToken } from './modules/auth/store/authActions'
 

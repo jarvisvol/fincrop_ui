@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { registerUser, clearError } from './store/authActions';
+import { registerUser, clearError } from '../store/authActions';
 
 class Register extends Component {
   constructor(props) {

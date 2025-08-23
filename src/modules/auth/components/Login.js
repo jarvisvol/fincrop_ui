@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Navigate, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { loginUser, clearError } from './store/authActions';
+import { loginUser, clearError } from '../store/authActions';
 
 class Login extends Component {
   constructor(props) {
