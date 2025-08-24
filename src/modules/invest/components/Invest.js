@@ -54,7 +54,7 @@ const Invest = ({
     if (!selectedPolicy || !investmentAmount) return;
     
     const result = await calculateMaturity({
-      policy_id: selectedPolicy._id,
+      policy_id: selectedPolicy.id,
       investment_amount: parseFloat(investmentAmount)
     });
     
@@ -69,7 +69,7 @@ const Invest = ({
     if (!selectedPolicy || !investmentAmount) return;
     
     const result = await subscribeToPolicy({
-      policy_id: selectedPolicy._id,
+      policy_id: selectedPolicy.id,
       investment_amount: parseFloat(investmentAmount)
     });
     
@@ -162,7 +162,7 @@ const Invest = ({
           const progress = Math.min((policy.interest_rate / 15) * 100, 100); // Scale to 15% max
 
           return (
-            <div key={policy._id} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+            <div key={policy.id} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h3 className="font-bold text-lg text-gray-800">{policy.name}</h3>
@@ -331,10 +331,10 @@ const Invest = ({
                 disabled={subscribeLoading || !calculationResult}
                 className="flex-1 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:opacity-50"
               >
-                {subscribeLoading ? 'Processing...' : 'Confirm Invest'}
+                {subscribeLoading ? 'Processing...' : 'Start Invest'}
               </button>
               <button
-                onClick={() => setShowModal(false)}
+                onClick={() => {setShowModal(false); setCalculationResult(null);}}
                 className="flex-1 bg-red-600 text-white py-2 rounded-md hover:bg-red-700"
               >
                 Cancel

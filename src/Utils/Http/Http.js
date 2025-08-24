@@ -1,12 +1,28 @@
 import axios from 'axios';
 
-const API_URL = 'http://127.0.0.1:8000/api'
+const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000/api';
 
-const accessToken = window.localStorage.getItem('accessToken');
+// Create axios instance
+const api = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
-axios.defaults.baseURL = API_URL;
-axios.defaults.headers.common.Accept = 'application/json';
-axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-axios.defaults.headers.accessToken = accessToken;
+// Add token to requests
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
-export default axios;
+export const authApi = api;
+export default api;
